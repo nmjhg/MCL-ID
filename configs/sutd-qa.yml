@@ -1,0 +1,35 @@
+gpu_id: 0
+multi_gpus: True
+#multi_gpus: False
+num_workers: 4
+seed: 666
+exp_name: 'result'
+
+train:
+  lr: 0.0002
+  batch_size: 64
+  restore: False
+  max_epochs: 60 
+  word_dim: 300
+  motion_dim: 1024
+  appearance_dim: 1536 
+  module_dim: 512
+  glove: True
+
+
+val:
+  flag: True
+
+test:
+  test_num: 0
+  write_preds: True
+
+dataset:
+  name: 'sutd-qa'
+  question_type: 'none'
+  data_dir: 'data/sutd-qa'
+  save_dir: './CFMMC-Align/result_clip/'
+  appearance_feat: 'sutd-traffic_appearance_feat_origin.h5'
+  motion_feat: '{}_motion_feat_swin_large.h5'
+  appearance_dict: '{}_appearance_feat_swin_large_train_dict.h5'
+  motion_dict: '{}_motion_feat_swin_large_train_dict.h5'
